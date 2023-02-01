@@ -1,5 +1,6 @@
 package com.example.mathtraning
 
+import android.util.Log
 import kotlin.random.Random
 
 object TrainingObject {
@@ -27,13 +28,16 @@ object TrainingObject {
         newExampleExecute()
     }
 
-    fun defineActions(add:Boolean, sub:Boolean, mult:Boolean, devis:Boolean):Boolean{
-        if (add && sub && mult && devis == false) return false
-        Actions.PLUS.isActive = add
-        Actions.MINUS.isActive = sub
-        Actions.MULTIPLY.isActive = mult
-        Actions.DIVISION.isActive = devis
-        return true
+    fun defineActions(add:Boolean, sub:Boolean, mult:Boolean, divis:Boolean):Boolean{
+        Log.d("MIMIKA", "$add,$sub,$mult,$divis")
+        if (add || sub || mult || divis) {
+            Actions.PLUS.isActive = add
+            Actions.MINUS.isActive = sub
+            Actions.MULTIPLY.isActive = mult
+            Actions.DIVISION.isActive = divis
+            return true
+        }
+        else return false
     }
 
     fun checkResult (answer: Int) {
